@@ -1,0 +1,45 @@
+body {
+    padding-top: 90px;
+    font-size: 16px;
+    font-family: "Open Sans", serif;
+    background: transparent;
+}
+
+.datetime-font-size {
+    font-size: 18px;
+}
+
+h1 {
+    font-family: "Abel", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+/* Override B3 .panel adding a subtly transparent background */
+.panel {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.padding-top-vertical {
+    padding: 15px 0;
+}
+
+.margin-base-vertical {
+    margin: 40px 0;
+}
+
+.icon {
+    padding: 10px;
+    border-radius: 10px;
+    width: 75%;
+    font-size: 92px;
+    margin: 0 auto;
+}
+
+.current-temp {
+    font-size: 24px;
+}
+
+.highLowTemp {
+    font-size: 18px;
+}

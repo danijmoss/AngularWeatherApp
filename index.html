@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS OpenWeatherMap App</title>
+    
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Angular JS -->
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    
+    <!-- Custom AngularJS Script -->
+    <script src="app.js"></script>
+    
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Weather Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    
+    <!-- Font Awesome -->
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Font Import -->
+	<link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600' rel='stylesheet'>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="weatherApp" ng-controller="weatherController" ng-style="weatherBackground">
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 panel panel-default">
+
+                <p class="text-right padding-top-vertical datetime-font-size">
+                    <!-- Weekday (Full Name) -->
+                    {{ date | date:'EEEE' | uppercase}}
+                    <br>
+
+                    <!-- Month and Day Number--> 
+                    {{ date | date:'MMMM'}} {{ date | date:'dd'}} 
+                    <br>
+
+                    <!-- Time -->
+                    {{ date | date:'shortTime' }}
+                </p>
+                <!-- END Date and Time -->
+
+                <!-- Location -->
+                <h1 class="text-center">{{ name }}, {{ country }}</h1>
+
+                <div class="margin-base-vertical">
+
+                    <!-- Icon -->
+                    <!--<img class="img-responsive center-block"  ng-src="{{ icon }}" alt="{{ description }} weather icon">-->
+                    <!--<i class="wi wi-owm-{{ icon }}"></i>-->
+                    <p class="icon text-center"><i class="wi wi-owm-{{ icon }}"></i></p>
+
+                    <!-- Current Temperature -->
+                    <p class="current-temp text-center">
+                       <a ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal">{{ fTemp }}</a> 
+                       
+                       <a ng-show="!tempVal" ng-click="tempVal=!tempVal">{{ cTemp }}</a>
+                    </p>
+
+                    <!-- Weather Description -->
+                    <h4 class="text-center">{{ description | uppercase }}</h4>
+
+                   
+                    <p class="text-center highLowTemp">
+                        <!-- Standard High / Low Temp -->
+                        <a ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal">{{ fTempMax }} High / {{ fTempMin }} Low</a>
+                        
+                        <!-- Metric High / Low Temp -->
+                        <a ng-show="!tempVal" ng-click="tempVal=!tempVal">{{ cTempMax }} High / {{ cTempMin }} Low</a>
+                    </p>
+                    
+                </div>
+
+                <!-- App Info -->
+                <div class="margin-base-vertical text-center">
+
+                     <small class=" text-muted">{{ info.heading }} |  {{ info.subheading01 }} | Background photos by <a href="https://unsplash.com/" target="_blank">Unsplash</a>| <a ng-href="{{ info.subheading02.link }}" target="_blank">{{ info.subheading02.name }}</a> {{ info.copyright }}</small>
+
+                </div>
+
+            </div>
+            <!-- END Panel -->
+        </div>
+        <!-- END Row -->
+    </div>   
+    <!-- END Container -->   
+       
+</body>
+
+</html>
